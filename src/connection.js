@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connect = "mongodb://127.0.0.1:27017/Redox"
+const connect = "mongodb+srv://pranaykumarbandla9:gdp123@cluster.01a4d.mongodb.net/Redox?retryWrites=true&w=majority&appName=Cluster"
 const connectDatabase = async () => {
     try {
         const { connection } = await mongoose.connect(connect);
