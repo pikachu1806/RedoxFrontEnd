@@ -19,8 +19,8 @@ async function fetchStudents() {
                 <td>${student.email}</td>
                 <td>${student.sectionId}</td>
                 <td>${student.data[0] ? student.data[0].accessCode :  "Empty"}</td>
-                <td>${student.level1Score || 0}</td>
-                <td>${student.level2Score || 0}</td>
+                <td>${student.data[0] ? student.data[0].level1Score : 0 }</td>
+                <td>${student.data[0] ? student.data[0].level2Score : 0}</td>
                 <td>
                     <button onclick="openEditPopup('event','${student._id}')">Edit</button>
                     <button onclick="deleteStudent('event','${student._id}')">Delete</button>
