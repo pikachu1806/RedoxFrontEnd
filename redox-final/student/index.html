@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .registration-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .registration-form h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button[type="submit"] {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="registration-form">
+    <h2>Student Registration</h2>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="sectionId">Section ID:</label>
+        <input type="text" id="sectionId" name="sectionId" required>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<script>
+
+document.getElementById('studentForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); 
+
+ 
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const sectionId = document.getElementById('sectionId').value.trim();
+
+    const studentData = { name, email, sectionId };
+
+    try {
+        const response = await fetch('/api/students/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(studentData)
+        });
+
+        const result = await response.json();
+        
+        if (response.ok) {
+          alert('Student registered successfully!');
+          // Optionally reset the form
+          document.getElementById('studentForm').reset();
+        } else {
+          alert(`Error registering student: ${result.message}`);
+        }
+        
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while registering the student.');
+    }
+});
+</script>
+
+</body>
+</html>

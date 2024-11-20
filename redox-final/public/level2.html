@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redox Game</title>
+    <link rel="stylesheet" href="./css/level2.css">
+    <script src="./scripts/authentication.js">
+    </script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="headcontainer">
+                <h1>Level 2 Question's Database</h1>
+                <button onclick="window.location.href='./manageStudents.html'" style="position: absolute; right: 10%;">Student Access</button>
+                <button id="logoutBtn" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+    </header>
+    <div class="main-nav">
+        <button class="pushable" onclick="window.location.href='professorDashboard.html'">
+            <span class="front">
+              Level 1
+            </span>
+          </button>
+          <button class="pushable">
+            <span class="front">
+              Level 2
+            </span>
+          </button>
+    </div>
+    <main>
+        
+<img src="./assests/home-background.png" class="img">
+<div class="form-container">
+    <form id="questionForm">
+        <div class="input-field">
+            <textarea id="question" placeholder="Enter the chemical equation" class="large-input" oninput="checkSeparator()" required></textarea>
+            <button type="submit" id="addButton" class="submit-btn" >Add</button>
+            <button id="editButton" onclick="editQuestions(event)" class="submit-btn" hidden="true">Save</button>
+        </div>
+        <div class="options-container">
+            <textarea id="option1" placeholder="Enter the oxidiser" class="large-input" required></textarea>
+            <textarea id="option2" placeholder="Enter the reducer" class="large-input" required></textarea>
+        </div>
+    </form>
+    <p id="output"></p>
+    <p id="output1"></p>
+    <p id="output2"></p>
+</div>
+
+        <div class="container">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Question Number</th>
+                            <th>Chemical Equation</th>
+                            <th>Oxidized</th>
+                            <th>Reduced</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="questionTable">
+                        <tr>
+                            <td>1</td>
+                            <td>What is the capital of France?</td>
+                            <td>Berlin</td>
+                            <td>Madrid</td>
+                            <td>
+                                <button class="actions">Edit</button>
+                                <button class="actions delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Which planet is known as the Red Planet?</td>
+                            <td>Earth</td>
+                            <td>Mars</td>
+                            <td>
+                                <button class="actions">Edit</button>
+                                <button class="actions delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Who wrote 'Hamlet'?</td>
+                            <td>Mark Twain</td>
+                            <td>Charles Dickens</td>
+                            <td>
+                                <button class="actions">Edit</button>
+                                <button class="actions delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>What is the capital of France?</td>
+                            <td>Berlin</td>
+                            <td>Madrid</td>
+                            <td>
+                                <button class="actions">Edit</button>
+                                <button class="actions delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="./scripts/level2.js"></script>
+</body>
+</html>

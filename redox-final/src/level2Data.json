@@ -1,0 +1,99 @@
+[
+    {
+      "questionNumber": 1,
+      "question": "CH₂O (aq) + O₂ (g) → CO₂ (g) + H₂O (l)",
+      "oxidized": "CH₂O → CO₂",
+      "reduced": "O₂ → CO₂ and H₂O"
+    },
+    {
+      "questionNumber": 2,
+      "question": "2 KC₈H₅O₄ + 30 Mn₂(SO₄)₃ + 24 H₂O → 16 CO₂ + 60 MnSO₄ + 28 H₂SO₄ + 2 KHSO₄",
+      "oxidized": "KC₈H₅O₄ → CO₂",
+      "reduced": "Mn₂(SO₄)₃ → MnSO₄"
+    },
+    {
+      "questionNumber": 3,
+      "question": "2 KC₈H₅O₄ + 10 K₂Cr₂O₇ + 41 H₂SO₄ → 16 CO₂ + 46 H₂O + 10 Cr₂(SO₄)₃ + 11 K₂SO₄",
+      "oxidized": "KC₈H₅O₄ → CO₂",
+      "reduced": "K₂Cr₂O₇ → Cr₂(SO₄)₃"
+    },
+    {
+      "questionNumber": 4,
+      "question": "4 Cl⁻ (aq) + O₂ (g) + 4 H⁺ (aq) → 2 H₂O (l) + 2 Cl₂ (g)",
+      "oxidized": "Cl⁻ → Cl₂",
+      "reduced": "O₂ → H₂O"
+    },
+    {
+      "questionNumber": 5,
+      "question": "4 FeS₂ (s) + 15 O₂ (g) + 2 H₂O (l) → (bacteria) 4 Fe³⁺ + 8 SO₄³⁻ + 4 H⁺ + 2 Fe₂(SO₄)₃ + 2 H₂SO₄",
+      "oxidized": "Fe²⁺ in FeS₂ → Fe³⁺",
+      "reduced": "S in FeS₂ and O₂ → SO₄³⁻"
+    },
+    {
+      "questionNumber": 6,
+      "question": "2 CH₂O (aq) → (bacteria) CH₄ (g) + CO₂ (g)",
+      "oxidized": "CH₂O → CO₂",
+      "reduced": "CH₂O → CH₄"
+    },
+    {
+      "questionNumber": 7,
+      "question": "N₂ (g) + O₂ (g) → (heat) 2 NO (g)",
+      "oxidized": "N in N₂ → NO",
+      "reduced": "O in O₂ → NO"
+    },
+    {
+      "questionNumber": 8,
+      "question": "2 N₂ (g) + 5 O₂ (g) + 2 H₂O (l) → 4 HNO₃ (aq)",
+      "oxidized": "N in N₂ → HNO₃",
+      "reduced": "O in O₂ → HNO₃"
+    },
+    {
+      "questionNumber": 9,
+      "question": "2 S (s) + 3 O₂ (g) + 2 H₂O (l) → 2 H₂SO₄ (aq)",
+      "oxidized": "S in S(s) → H₂SO₄",
+      "reduced": "O in O₂ → H₂SO₄"
+    },
+    {
+      "questionNumber": 10,
+      "question": "CH₄ (g) + 2 O₂ (g) → CO₂ + 2 H₂O",
+      "oxidized": "C in CH₄ → CO₂",
+      "reduced": "O₂ → CO₂ and H₂O"
+    },
+    {
+      "questionNumber": 11,
+      "question": "6 CO₂ (g) + 6 H₂O (l) → (chlorophyll and sunlight) C₆H₁₂O₆ (s) + 6 O₂ (g)",
+      "oxidized": "O in H₂O → O₂",
+      "reduced": "C in CO₂ → C₆H₁₂O₆"
+    },
+    {
+      "questionNumber": 12,
+      "question": "2 HClO (aq) + Fe (s) + 2 H⁺ (aq) → Fe²⁺ (aq) + Cl₂ (g) + 2 H₂O (l)",
+      "oxidized": "Fe → Fe²⁺",
+      "reduced": "HClO → Cl₂"
+    },
+    {
+      "questionNumber": 13,
+      "question": "2 HClO (aq) + Pb (s) + 2 H⁺ → Pb²⁺ (aq) + Cl₂ (g) + 2 H₂O",
+      "oxidized": "Pb → Pb²⁺",
+      "reduced": "HClO → Cl₂"
+    },
+    {
+      "questionNumber": 14,
+      "question": "2 Fe²⁺ (aq) + 1/2 O₂ (g) + 2 H⁺ (aq) → 2 Fe³⁺ (aq) + H₂O (l)",
+      "oxidized": "Fe²⁺ → Fe³⁺",
+      "reduced": "O₂ → H₂O"
+    },
+    {
+      "questionNumber": 15,
+      "question": "CdCl₂ (aq) + Na₂S (aq) → CdS (s) + 2 NaCl (aq)",
+      "oxidized": "No oxidation",
+      "reduced": "No reduction"
+    },
+    {
+      "questionNumber": 16,
+      "question": "2 ZnS (s) + 2 HCl (aq) → ZnCl₂ (aq) + H₂S (g)",
+      "oxidized": "No oxidation",
+      "reduced": "No reduction"
+    }
+  ]
+  

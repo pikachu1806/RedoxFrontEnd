@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redox Game</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/students.css">
+    <script src="./scripts/authentication.js">
+    </script>
+    <style>
+        .popup {
+            display: none;
+            position: fixed; 
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .popup-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="headcontainer">
+                <h1>Question's Database</h1>
+                <button onclick="window.location.href='./professorDashboard.html'" style="position: absolute; right: 10%;">Manage Questions</button>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </nav>
+    </header>
+    <button id="addStudentBtn" onclick="addStudent()">Add Student</button>
+    <button id="addStudentBtn" onclick="generateAccessCode()">Generate Access Token</button>
+
+    <!-- Add Student Popup Form -->
+    <div id="addPopup">
+        <form id="studentForm" onsubmit="submitStudent(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter name" required><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter email" required><br>
+    
+            <label for="sectionId">Section ID:</label>
+            <input type="text" id="sectionId" placeholder="Enter section ID" required><br>
+    
+            <div id="sub">
+                <button id="formsubmitbutton" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+
+    <!-- Student Table -->
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Section ID</th>
+                <th>Access Code</th>
+                <th>Level 1 Score</th>
+                <th>Level 2 Score</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>johndoe@example.com</td>
+                <td>A1</td>
+                <td>1234</td>
+                <td>80</td>
+                <td>
+                    <button class="editbutton" onclick="editStudent()">Edit</button>
+                    <button class="deletebutton" onclick="deleteStudent('johndoe@example.com')">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>janesmith@example.com</td>
+                <td>A2</td>
+                <td>5678</td>
+                <td>85</td>
+                <td>
+                    <button class="editbutton" onclick="editStudent()">Edit</button>
+                    <button class="deletebutton" onclick="deleteStudent('janesmith@example.com')">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Mike Ross</td>
+                <td>mikeross@example.com</td>
+                <td>B1</td>
+                <td>9101</td>
+                <td>90</td>
+                <td>
+                    <button class="editbutton" onclick="editStudent()">Edit</button>
+                    <button class="deletebutton" onclick="deleteStudent('mikeross@example.com')">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Sarah Lee</td>
+                <td>sarahlee@example.com</td>
+                <td>B2</td>
+                <td>2345</td>
+                <td>95</td>
+                <td>
+                    <button class="editbutton" onclick="editStudent()">Edit</button>
+                    <button class="deletebutton" onclick="deleteStudent('sarahlee@example.com')">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Edit Student Popup -->
+<div id="editPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeEditPopup()">&times;</span>
+        <h2>Edit Student</h2>
+        <form id="editStudentForm">
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" name="editName" required>
+
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" name="editEmail" required>
+
+            <label for="editSectionId">Section ID:</label>
+            <input type="text" id="editSectionId" name="editSectionId" required>
+
+            <button type="submit" onclick="submitEditStudent(event)">Save</button>
+            <button type="button" onclick="closeEditPopup()">Cancel</button>
+        </form>
+    </div>
+</div>
+
+
+    <script src="./scripts/students.js"></script>
+</body>
+</html>

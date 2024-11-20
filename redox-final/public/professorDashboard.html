@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redox Game</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./scripts/authentication.js">
+    </script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="headcontainer">
+                <h1>Level 1 Question's Database</h1>
+                <button onclick="window.location.href='./manageStudents.html'" style="position: absolute; right: 10%;">Student Access</button>
+                <button id="logoutBtn" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+    </header>
+    <div class="main-nav">
+        <button class="pushable">
+            <span class="front">
+              Level 1
+            </span>
+          </button>
+          <button class="pushable" onclick="window.location.href='level2.html'">
+            <span class="front">
+              Level 2
+            </span>
+          </button>
+    </div>
+    <main>
+        
+<img src="./assests/home-background.png" class="img">
+<div class="form-container">
+    <form id="questionForm">
+        <div class="input-field">
+            <textarea id="question" placeholder="Enter question" class="large-input" required></textarea>
+            <button type="submit" id="addButton" class="submit-btn" >Add</button>
+            <button id="editButton" onclick="editQuestions(event)" class="submit-btn" hidden="true">Save</button>
+        </div>
+        <div class="options-container">
+            <div>
+                <input type="text" id="option1" placeholder="Option 1" class="option-input" required>
+                <div id="option1Output" class="output"></div>
+            </div>
+            <div>
+                <input type="text" id="option2" placeholder="Option 2" class="option-input" required>
+                <div id="option2Output" class="output"></div>
+            </div>
+        </div>
+        <div class="options-container">
+            <div>
+                <input type="text" id="option3" placeholder="Option 3" class="option-input" required>
+                <div id="option3Output" class="output"></div>
+            </div>
+            <div>
+                <input type="text" id="option4" placeholder="Option 4" class="option-input" required>
+                <div id="option4Output" class="output"></div>
+            </div>
+        </div>
+        
+        <div class="level-select">
+            <select id="correctOption" required>
+                <option value="" disabled selected>Select Answer</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+            </select>
+        </div>
+        <p id="output"></p>
+    </form>
+</div>
+
+        <div class="container">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Question Number</th>
+                            <th>Compound</th>
+                            <th>Option 1</th>
+                            <th>Option 2</th>
+                            <th>Option 3</th>
+                            <th>Option 4</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="questionTable">
+                        <tr>
+                            <td>What is the capital of France?</td>
+                            <td>Berlin</td>
+                            <td>Madrid</td>
+                            <td>Paris</td>
+                            <td>Rome</td>
+                            <td>
+                                <button class="actions">Edit</button>
+                                <button class="actions delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Which planet is known as the Red Planet?</td>
+                            <td>Earth</td>
+                            <td>Mars</td>
+                            <td>Jupiter</td>
+                            <td>Venus</td>
+                            <td>
+                                <button class="actions">Edit</button>
+                                <button class="actions delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Who wrote 'Hamlet'?</td>
+                            <td>Mark Twain</td>
+                            <td>Charles Dickens</td>
+                            <td>William Shakespeare</td>
+                            <td>Leo Tolstoy</td>
+                            <td>
+                                <button class="actions">Edit</button>
+                                <button class="actions delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>What is the capital of France?</td>
+                            <td>Berlin</td>
+                            <td>Madrid</td>
+                            <td>Paris</td>
+                            <td>Rome</td>
+                            <td>
+                                <button class="actions">Edit</button>
+                                <button class="actions delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #1772FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#addStudentBtn{
+    padding: 8px;
+    margin-bottom: 0%;
+}
+
+button:hover {
+    background-color: #003f8c;
+}
+
+#addStudentBtn {
+    margin: 10px;
+    margin-top: 80px;
+}
+
+#addPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 25%;
+    transform: translate(-50%, -50%);
+    background-color: #b3e5fc;
+    padding: 30px;
+    padding-right: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    
+}
+
+#studentForm label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#studentForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#studentTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#studentTable thead {
+    background-color: #04AA6D;
+    color: white;
+    font-weight: bold;
+}
+
+#studentTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#studentTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#studentTable td, #studentTable th {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#formsubmitbutton{
+    margin-top: 10px;
+    border-radius: 10%;
+}
+
+
+.editbutton {
+    background-color: #3979d8;
+}
+
+.editbutton:hover, .formsubmitbutton:hover {
+    background-color: #003f8c;
+}
+
+.deletebutton {
+    background-color: red;
+}
+
+.deletebutton:hover {
+    background-color: darkred;
+}
+
+.editbutton{
+    margin-right: 3%;
+}
+#sub{
+    display: flex;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-top: 5px; 
+}
