@@ -3,6 +3,8 @@ const validator=require("validator")
 const bcrypt=require("bcryptjs")
 const jwt=require("jsonwebtoken")
 const { boolean } = require("webidl-conversions")
+const JWT_SECRET_KEY='redoxsecretkey'
+require('dotenv').config();
 
 
 const UserSchema = mongoose.Schema({
@@ -41,7 +43,18 @@ const UserSchema = mongoose.Schema({
 })
 
 
-
+UserSchema.methods.generateAuthToken = function() {
+    const user = this;
+    if (!user._id) {
+        throw new Error("User ID is missing");
+    }
+    const token = jwt.sign(
+        { _id: user._id.toString() },
+         JWT_SECRET_KEY,
+        { expiresIn: '7d' }
+    );
+    return token;
+};
 
 
 //Professordef function for authentication

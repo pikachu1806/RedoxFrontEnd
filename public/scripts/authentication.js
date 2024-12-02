@@ -1,9 +1,11 @@
 const auth = localStorage.getItem('email')
-if(!auth){
-  //  window.location.href="index.html"
+const userToken = localStorage.getItem('token')
+if(!auth || !userToken){
+    console.log("Not authenticated", auth, userToken)
+    window.location.href="index.html"
 }
 
 function logout(){
     localStorage.clear()
-   // window.location.reload()
+    window.location.reload()
 }

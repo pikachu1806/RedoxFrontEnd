@@ -5,6 +5,7 @@ var submitBtn = document.getElementById('addButton');
 var editBtn = document.getElementById('editButton');
 var outputElement = document.getElementById('output');
 var isEditQuestion = false;
+const token = localStorage.getItem('token');
 
 function checkSeparator() {
     const rawText = questionInput.value;
@@ -137,18 +138,31 @@ function editQuestion(row, questionNumber) {
 
 async function fetchQuestions() {
     try {
-        const response = await fetch('/professor/getLevel2Questions');
+
+        const response = await fetch('/professor/getLevel2Questions', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+
         const data = await response.json();
-        if(data.questions.length>0){
+        
+        if (data.questions && data.questions.length > 0) {
             populateTable(data.questions);
         } else {
-            alert("No questions data to show")
+            alert("No questions data to show");
         }
-        
     } catch (error) {
         console.error('Error fetching questions:', error);
     }
 }
+
 
 function populateTable(questions) {
     const tableBody = document.getElementById('questionTable');
@@ -199,7 +213,8 @@ document.getElementById('questionForm').addEventListener('submit', async functio
         const response = await fetch('/professor/addLevel2Question/addQuestion', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(questionData)
         });
@@ -241,7 +256,8 @@ async function editQuestions(event) {
         const response = await fetch(`/professor/level2Questions/${questionNumber}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(questionData)
         });
@@ -278,22 +294,28 @@ function addTableActions() {
 }
 
 
-
 async function deleteQuestion(questionNumber) {
-    console.log(questionNumber)
-     try {
+    console.log(questionNumber);
+    try {
+
         const response = await fetch(`/professor/level2Questions/${questionNumber}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
         });
 
         if (!response.ok) {
             throw new Error('Error deleting question');
         }
+        
         alert('Question deleted successfully');
-        window.location.reload(true)
+        window.location.reload(true);
     } catch (error) {
         console.error('Error deleting question:', error);
-    } 
+    }
 }
+
 
 document.addEventListener('DOMContentLoaded', fetchQuestions);

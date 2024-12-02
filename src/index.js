@@ -5,18 +5,14 @@ const app = express()
 const path=require('path')
 const cors = require('cors')
 const helmet = require('helmet')
-const connectDb = require('./connection.js')
-const Routers = require('./professorRouter.js')
+const connectDb = require('./database/connection.js')
+const Routers = require('./Routes/professorRouter.js')
 const publicDirectoryPath=path.join(__dirname,'../public')
 const studentDirectoryPath=path.join(__dirname,'../student')
-const studentRoutes = require('./studentRoutes.js');
+const studentRoutes = require('./Routes/studentRoutes.js');
 
-// Middleware to parse incoming JSON requests
-//app.use(bodyParser.json());
 app.use(express.static(publicDirectoryPath))
 app.use("/student", express.static(studentDirectoryPath))
-// Import routes
-
 
 app.use(express.json())
 app.options('*', cors());

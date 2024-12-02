@@ -6,6 +6,8 @@ var correctOption = document.getElementById('correctOption').value;
 var submitBtn = document.getElementById('addButton');
 var editBtn = document.getElementById('editButton');
 var isEditQuestion = false;
+const token = localStorage.getItem('token');
+
 //document.getElementById('questionForm').reset();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -79,9 +81,18 @@ function formatInputs() {
 
 async function fetchQuestions() {
     try {
-        const response = await fetch('/professor/getQuestions');
+
+        const response = await fetch('/professor/getQuestions', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
         const data = await response.json();
-        if (data.questions.length > 0) {
+        
+        if (data.questions && data.questions.length > 0) {
             populateTable(data.questions);
         } else {
             alert("No questions data to show");
@@ -90,6 +101,7 @@ async function fetchQuestions() {
         console.error('Error fetching questions:', error);
     }
 }
+
 
 function populateTable(questions) {
     const tableBody = document.getElementById('questionTable');
@@ -149,7 +161,8 @@ document.getElementById('questionForm').addEventListener('submit', async functio
         const response = await fetch('/professor/addQuestion', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(questionData)
         });
@@ -198,7 +211,8 @@ async function editQuestions(event) {
         const response = await fetch(`/professor/questions/${questionNumber}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(questionData)
         });
@@ -255,16 +269,23 @@ function addTableActions() {
 
 async function deleteQuestion(questionNumber) {
     try {
+
         const response = await fetch(`/professor/questions/${questionNumber}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
         });
 
         if (!response.ok) {
             throw new Error('Error deleting question');
         }
+        
         alert('Question deleted successfully');
     } catch (error) {
-        console.error(error);
+        console.error('Error deleting question:', error);
         alert('Error deleting question');
     }
 }
+

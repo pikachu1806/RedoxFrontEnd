@@ -19,19 +19,22 @@ const studentSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+
     data: [
         {
             accessCode: {
                 type: String,
                 trim: true
             },
-            level1Score: {
-                type: Number,
-                trim: true
+            level1Scores: {
+                type: [Number],
+                default: [],
+                validate: [arrayLimit, 'You can only store up to 5 scores for level 1']
             },
-            level2Score: {
-                type: Number,
-                trim: true
+            level2Scores: {
+                type: [Number],
+                default: [],
+                validate: [arrayLimit, 'You can only store up to 5 scores for level 2']
             },
             attemptedDate: {
                 type: Date, 
@@ -41,6 +44,10 @@ const studentSchema = new mongoose.Schema({
     ]
 });
 
+
+function arrayLimit(val) {
+    return val.length <= 5;
+}
 
 studentSchema.methods.generateAccessCode = function() {
     return crypto.randomBytes(8).toString('hex');

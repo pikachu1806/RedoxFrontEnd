@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connect = "mongodb+srv://pranaykumarbandla9:gdp123@cluster.01a4d.mongodb.net/Redox?retryWrites=true&w=majority&appName=Cluster"
+const connect = "mongodb+srv://pranaykumarbandla9:gdp12345@cluster.01a4d.mongodb.net/Redox?retryWrites=true&w=majority&appName=Cluster"
 const connectDatabase = async () => {
     try {
         const { connection } = await mongoose.connect(connect);

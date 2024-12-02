@@ -6,8 +6,7 @@
     <title>Redox Game</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/students.css">
-    <script src="./scripts/authentication.js">
-    </script>
+    <script src="./scripts/authentication.js"></script>
     <style>
         .popup {
             display: none;
@@ -30,21 +29,37 @@
             width: 80%;
         }
 
-        .close {
+        .close-btn {
             color: #aaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
+            margin-left: 99%;
         }
 
-        .close:hover,
-        .close:focus {
+        .close-btn:hover,
+        .close-btn:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
         }
+        dialog {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            height: auto;
+            width: auto;
+        }
+
+        #closeDialog {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
 
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -52,7 +67,7 @@
             <div class="headcontainer">
                 <h1>Question's Database</h1>
                 <button onclick="window.location.href='./professorDashboard.html'" style="position: absolute; right: 10%;">Manage Questions</button>
-                <button id="logoutBtn">Logout</button>
+                <button id="logoutBtn" onclick="logout()">Logout</button>
             </div>
         </nav>
     </header>
@@ -61,6 +76,7 @@
 
     <!-- Add Student Popup Form -->
     <div id="addPopup">
+        <a class="close-btn" onclick="document.getElementById('addPopup').style.display='none'">&times;</a>
         <form id="studentForm" onsubmit="submitStudent(event)">
             <label for="name">Name:</label>
             <input type="text" id="name" placeholder="Enter name" required><br>
@@ -139,25 +155,31 @@
         </tbody>
     </table>
     <!-- Edit Student Popup -->
-<div id="editPopup" class="popup">
-    <div class="popup-content">
-        <span class="close" onclick="closeEditPopup()">&times;</span>
-        <h2>Edit Student</h2>
-        <form id="editStudentForm">
-            <label for="editName">Name:</label>
-            <input type="text" id="editName" name="editName" required>
+    <div id="editPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeEditPopup()">&times;</span>
+            <h2>Edit Student</h2>
+            <form id="editStudentForm">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" name="editName" required>
 
-            <label for="editEmail">Email:</label>
-            <input type="email" id="editEmail" name="editEmail" required>
+                <label for="editEmail">Email:</label>
+                <input type="email" id="editEmail" name="editEmail" required>
 
-            <label for="editSectionId">Section ID:</label>
-            <input type="text" id="editSectionId" name="editSectionId" required>
+                <label for="editSectionId">Section ID:</label>
+                <input type="text" id="editSectionId" name="editSectionId" required>
 
-            <button type="submit" onclick="submitEditStudent(event)">Save</button>
-            <button type="button" onclick="closeEditPopup()">Cancel</button>
-        </form>
+                <button type="submit" onclick="submitEditStudent(event)">Save</button>
+                <button type="button" onclick="closeEditPopup()">Cancel</button>
+            </form>
+        </div>
     </div>
-</div>
+
+    <dialog id="reportDialog">
+        <button id="closeDialog" aria-label="close">Close</button>
+        <canvas id="scoreChart" width="400" height="200"></canvas>
+    </dialog>
+
 
 
     <script src="./scripts/students.js"></script>

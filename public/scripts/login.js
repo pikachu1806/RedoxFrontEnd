@@ -1,3 +1,4 @@
+const token = localStorage.getItem('token');
 
 document.querySelectorAll('.form input, .form textarea').forEach(function (element) {
     element.addEventListener('keyup', handleEvent);
@@ -81,6 +82,7 @@ document.querySelectorAll('.form input, .form textarea').forEach(function (eleme
               alert("Account Login success");
               //Form.reset();
               window.localStorage.setItem('email', response.user.email);
+              window.localStorage.setItem('token', response.token);
               window.location.href = 'professorDashboard.html';
           } else {
               
